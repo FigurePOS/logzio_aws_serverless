@@ -1,0 +1,27 @@
+version: 2
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - deploy
+
+jobs:
+  deploy_development:
+    working_directory: ~/project
+    docker:
+      - image: progressly/circleci_node-aws:latest
+    steps:
+      - checkout
+      - run:
+          name: "Deploy DEVELOPMENT"
+          command: |
+            ./scripts/deploy.sh 880892332156 development
+      - run:
+          name: "Deploy STAGING"
+          command: |
+            ./scripts/deploy.sh 625880384776 staging
+      - run:
+          name: "Deploy PRODUCTION"
+          command: |
+            ./scripts/deploy.sh 682919404744 production

@@ -7,3 +7,9 @@ This project contains code for Python 2 and Python 3.
 We urge you to use Python 3 because Python 2.7 will reach end of life on January 1, 2020.
  
 [Get started with Python 3](https://github.com/logzio/logzio_aws_serverless/tree/support-python3/python3)
+
+### Figure deployment
+
+`npm install -g serverless@1.66.0`
+
+`serverless deploy --verbose --stage development`

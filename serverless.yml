@@ -1,0 +1,53 @@
+
+service: logging
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: ${opt:stage, "development"}
+  memorySize: 128
+  timeout: 10
+
+package:
+  exclude:
+    - "**"
+  include:
+    - python3/cloudwatch/src/lambda_function.py
+    - python3/shipper/shipper.py
+
+custom:
+  environment: ${opt:stage, "development"}
+
+functions:
+  cloudwatch-logzio-shipper:
+    handler: python3/cloudwatch/src/lambda_function.lambda_handler
+    environment:
+      ENRICH: environment=${self:custom.environment}
+      FORMAT: JSON
+      TOKEN: ${ssm:/logzio_token~true}
+      URL: https://listener.logz.io:8071
+    events:
+      - cloudwatchLog:
+          logGroup: "/aws/events/ecs-service"
+      - cloudwatchLog:
+          logGroup: "/figure/container/fgr-service-auth"
+      - cloudwatchLog:
+          logGroup: "/figure/container/fgr-service-backend"
+      - cloudwatchLog:
+          logGroup: "/figure/container/fgr-service-card-program"
+      - cloudwatchLog:
+          logGroup: "/figure/container/fgr-service-emailing"
+      - cloudwatchLog:
+          logGroup: "/figure/container/fgr-service-weather"
+      - cloudwatchLog:
+          logGroup: "/figure/container/figure-register-api"
+      - cloudwatchLog:
+          logGroup: "/figure/container/figure-kiosk-api"
+      - cloudwatchLog:
+          logGroup: "/figure/container/figure-manage-api"
+      - cloudwatchLog:
+          logGroup: "/figure/container/make-it-butter-api"
+      - cloudwatchLog:
+          logGroup: "/figure/container/figure-manage"
+      - cloudwatchLog:
+          logGroup: "/figure/container/make-it-butter"
