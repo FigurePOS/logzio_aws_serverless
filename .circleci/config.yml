@@ -4,7 +4,10 @@ workflows:
   version: 2
   deploy:
     jobs:
-      - deploy
+      - deploy:
+          filters:
+            branches:
+              only: master
 
 jobs:
   deploy:
@@ -13,6 +16,10 @@ jobs:
       - image: progressly/circleci_node-aws:latest
     steps:
       - checkout
+      - run:
+          name: "Install dependencies"
+          command: |
+            npm install -g serverless@1.35.1
       - run:
           name: "Deploy DEVELOPMENT"
           command: |

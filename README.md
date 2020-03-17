@@ -10,6 +10,6 @@ We urge you to use Python 3 because Python 2.7 will reach end of life on January
 
 ### Figure deployment
 
-`npm install -g serverless@1.66.0`
+`npm install -g serverless@1.35.1`
 
 `serverless deploy --verbose --stage development`
