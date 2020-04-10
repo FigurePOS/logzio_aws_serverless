@@ -31,31 +31,6 @@ functions:
     events:
       - cloudwatchLog:
           logGroup: "/aws/events/ecs-service"
-      - cloudwatchLog:
-          logGroup: "/figure/container/fgr-service-auth"
-      - cloudwatchLog:
-          logGroup: "/figure/container/fgr-service-backend"
-      - cloudwatchLog:
-          logGroup: "/figure/container/fgr-service-card-program"
-      - cloudwatchLog:
-          logGroup: "/figure/container/fgr-service-emailing"
-      - cloudwatchLog:
-          logGroup: "/figure/container/fgr-service-weather"
-      - cloudwatchLog:
-          logGroup: "/figure/container/figure-register-api"
-      - cloudwatchLog:
-          logGroup: "/figure/container/figure-kiosk-api"
-      - cloudwatchLog:
-          logGroup: "/figure/container/figure-manage-api"
-      - cloudwatchLog:
-          logGroup: "/figure/container/make-it-butter-api"
-      - cloudwatchLog:
-          logGroup: "/figure/container/figure-manage"
-      - cloudwatchLog:
-          logGroup: "/figure/container/make-it-butter"
-      - cloudwatchLog:
-          logGroup: "/figure/job/production-migration"
-
 
 resources:
   Resources:
