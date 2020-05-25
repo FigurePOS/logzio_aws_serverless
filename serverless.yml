@@ -53,6 +53,8 @@ functions:
           logGroup: "/figure/container/figure-manage"
       - cloudwatchLog:
           logGroup: "/figure/container/make-it-butter"
+      - cloudwatchLog:
+          logGroup: "/figure/container/figure-mobile-api"
 
 resources:
   Resources:
