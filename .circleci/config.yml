@@ -19,7 +19,7 @@ jobs:
       - run:
           name: "Install dependencies"
           command: |
-            sudo npm install -g serverless@1.35.1
+            sudo npm install -g serverless@1.71.3
       - run:
           name: "Deploy DEVELOPMENT"
           command: |
