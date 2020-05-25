@@ -54,8 +54,6 @@ functions:
       - cloudwatchLog:
           logGroup: "/figure/container/make-it-butter"
       - cloudwatchLog:
-          logGroup: "/figure/job/production-migration"
-      - cloudwatchLog:
           logGroup: "/figure/container/figure-mobile-api"
 
 resources:
